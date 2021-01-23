@@ -32,7 +32,14 @@ class MovieListView extends StatelessWidget {
             BuildContext context,
             int index,
           ) {
-            return movieCard(movieList[index], context);
+            return Stack(children: [
+
+              movieCard(movieList[index], context),
+              Positioned(
+                top: 10.0,
+                child: movieImage(movieList[index].images[0]),
+              ),
+            ]);
             // return Card(
             //   elevation: 10,
             //   color: Colors.white,
@@ -79,6 +86,7 @@ class MovieListView extends StatelessWidget {
   Widget movieCard(Movie movie, BuildContext context) {
     return InkWell(
       child: Container(
+        margin: EdgeInsets.only(left: 50),
         width: MediaQuery.of(context).size.width,
         height: 120.0,
         child: Card(
@@ -125,12 +133,11 @@ class MovieListView extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         image: DecorationImage(
-          image: NetworkImage(
-            imageUrl ??
-                'https://images-na.ssl-images-amazon.com/images/M/MV5BMTc0NzAxODAyMl5BMl5BanBnXkFtZTgwMDg0MzQ4MDE@._V1_SX1500_CR0,0,1500,999_AL_.jpg',
-          ),
-          fit: BoxFit.cover
-        ),
+            image: NetworkImage(
+              imageUrl ??
+                  'https://images-na.ssl-images-amazon.com/images/M/MV5BMTc0NzAxODAyMl5BMl5BanBnXkFtZTgwMDg0MzQ4MDE@._V1_SX1500_CR0,0,1500,999_AL_.jpg',
+            ),
+            fit: BoxFit.cover),
       ),
     );
   }
