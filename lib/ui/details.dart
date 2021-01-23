@@ -8,12 +8,14 @@ class MovieListViewDetail extends StatelessWidget {
         title: Text("Details"),
         backgroundColor: Colors.blueGrey.shade900,
       ),
-      body: Container(
-        child: RaisedButton(
-          onPressed: (){
-            
-          },
-          child: Text("Go Back"),
+      body: Center(
+        child: Container(
+          child: RaisedButton(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            child: Text("Go Back"),
+          ),
         ),
       ),
     );
