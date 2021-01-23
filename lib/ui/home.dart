@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie.dart';
+import 'package:movie_app/ui/components/movie_card.dart';
 import 'package:movie_app/ui/details.dart';
+
+import 'components/movie_image.dart';
 
 class MovieListView extends StatelessWidget {
   final List<Movie> movieList = Movie.getMovies();
@@ -82,68 +85,68 @@ class MovieListView extends StatelessWidget {
   }
 
   //crearting custom widget
-  Widget movieCard(Movie movie, BuildContext context) {
-    return InkWell(
-      child: Container(
-        margin: EdgeInsets.only(left: 50),
-        width: MediaQuery.of(context).size.width,
-        height: 120.0,
-        child: Card(
-            color: Colors.black45,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 54.0),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            child: Text(
-                              movie.title,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17.0,
-                                  color: Colors.white),
-                            ),
-                          ),
-                          Text(
-                            "Rating: ${movie.imdbRating} / 10",
-                            style: mainTextStyle(),
-                          )
-                        ]),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          "Realeased: ${movie.released}",
-                          style: mainTextStyle(),
-                        ),
-                        Text(
-                          movie.rated,
-                          style: mainTextStyle(),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            )),
-      ),
-      onTap: () => {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>
-                MovieListViewDetail(movieName: movie.title, movie: movie),
-          ),
-        ),
-      },
-    );
-  }
+  // Widget movieCard(Movie movie, BuildContext context) {
+  //   return InkWell(
+  //     child: Container(
+  //       margin: EdgeInsets.only(left: 50),
+  //       width: MediaQuery.of(context).size.width,
+  //       height: 120.0,
+  //       child: Card(
+  //           color: Colors.black45,
+  //           child: Padding(
+  //             padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 54.0),
+  //             child: Padding(
+  //               padding: const EdgeInsets.all(8.0),
+  //               child: Column(
+  //                 crossAxisAlignment: CrossAxisAlignment.start,
+  //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //                 children: [
+  //                   Row(
+  //                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //                       children: [
+  //                         Flexible(
+  //                           child: Text(
+  //                             movie.title,
+  //                             style: TextStyle(
+  //                                 fontWeight: FontWeight.bold,
+  //                                 fontSize: 17.0,
+  //                                 color: Colors.white),
+  //                           ),
+  //                         ),
+  //                         Text(
+  //                           "Rating: ${movie.imdbRating} / 10",
+  //                           style: mainTextStyle(),
+  //                         )
+  //                       ]),
+  //                   Row(
+  //                     mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //                     children: [
+  //                       Text(
+  //                         "Realeased: ${movie.released}",
+  //                         style: mainTextStyle(),
+  //                       ),
+  //                       Text(
+  //                         movie.rated,
+  //                         style: mainTextStyle(),
+  //                       ),
+  //                     ],
+  //                   )
+  //                 ],
+  //               ),
+  //             ),
+  //           )),
+  //     ),
+  //     onTap: () => {
+  //       Navigator.push(
+  //         context,
+  //         MaterialPageRoute(
+  //           builder: (context) =>
+  //               MovieListViewDetail(movieName: movie.title, movie: movie),
+  //         ),
+  //       ),
+  //     },
+  //   );
+  // }
 
   TextStyle mainTextStyle() {
     return TextStyle(
@@ -152,19 +155,19 @@ class MovieListView extends StatelessWidget {
     );
   }
 
-  Widget movieImage(String imageUrl) {
-    return Container(
-      width: 100,
-      height: 100,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        image: DecorationImage(
-            image: NetworkImage(
-              imageUrl ??
-                  'https://images-na.ssl-images-amazon.com/images/M/MV5BMTc0NzAxODAyMl5BMl5BanBnXkFtZTgwMDg0MzQ4MDE@._V1_SX1500_CR0,0,1500,999_AL_.jpg',
-            ),
-            fit: BoxFit.cover),
-      ),
-    );
-  }
+  // Widget movieImage(String imageUrl) {
+  //   return Container(
+  //     width: 100,
+  //     height: 100,
+  //     decoration: BoxDecoration(
+  //       shape: BoxShape.circle,
+  //       image: DecorationImage(
+  //           image: NetworkImage(
+  //             imageUrl ??
+  //                 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTc0NzAxODAyMl5BMl5BanBnXkFtZTgwMDg0MzQ4MDE@._V1_SX1500_CR0,0,1500,999_AL_.jpg',
+  //           ),
+  //           fit: BoxFit.cover),
+  //     ),
+  //   );
+  // }
 }
