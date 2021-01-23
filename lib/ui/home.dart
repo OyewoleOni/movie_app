@@ -25,7 +25,7 @@ class MovieListView extends StatelessWidget {
         title: Text("Movies"),
         backgroundColor: Colors.blueGrey.shade900,
       ),
-      backgroundColor: Colors.blueGrey.shade400,
+      backgroundColor: Colors.blueGrey.shade900,
       body: ListView.builder(
           itemCount: movieList.length,
           itemBuilder: (
@@ -33,7 +33,6 @@ class MovieListView extends StatelessWidget {
             int index,
           ) {
             return Stack(children: [
-
               movieCard(movieList[index], context),
               Positioned(
                 top: 10.0,
@@ -93,24 +92,44 @@ class MovieListView extends StatelessWidget {
             color: Colors.black45,
             child: Padding(
               padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 54.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              movie.title,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17.0,
+                                  color: Colors.white),
+                            ),
+                          ),
+                          Text(
+                            "Rating: ${movie.imdbRating} / 10",
+                            style: mainTextStyle(),
+                          )
+                        ]),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text(movie.title),
-                        Text("Rating: ${movie.imdbRating} / 10")
-                      ]),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text("Realeased: ${movie.released}"),
-                      Text(movie.rated),
-                    ],
-                  )
-                ],
+                        Text(
+                          "Realeased: ${movie.released}",
+                          style: mainTextStyle(),
+                        ),
+                        Text(
+                          movie.rated,
+                          style: mainTextStyle(),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             )),
       ),
@@ -123,6 +142,13 @@ class MovieListView extends StatelessWidget {
           ),
         ),
       },
+    );
+  }
+
+  TextStyle mainTextStyle() {
+    return TextStyle(
+      color: Colors.grey,
+      fontSize: 15.0,
     );
   }
 
