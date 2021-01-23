@@ -3,7 +3,7 @@
  import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie.dart';
 
-import '../details.dart';
+import '../../detail_page/details.dart';
 
 Widget movieCard(Movie movie, BuildContext context) {
     return InkWell(
