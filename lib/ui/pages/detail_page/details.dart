@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie.dart';
 
+import 'components/movie_details_thumbnail.dart';
+
 class MovieListViewDetail extends StatelessWidget {
   
   final String movieName;
@@ -15,16 +17,21 @@ class MovieListViewDetail extends StatelessWidget {
         title: Text("Details of ${this.movieName}"),
         backgroundColor: Colors.blueGrey.shade900,
       ),
-      body: Center(
-        child: Container(
-          child: RaisedButton(
-            onPressed: (){
-              Navigator.pop(context);
-            },
-            child: Text("Go Back ${this.movie.title}"),
-          ),
-        ),
+      body: ListView(
+        children: [
+          MovieDetailsThumbnail(thumbnailUrl: this.movie.images[0]),
+        ],
       ),
+      // body: Center(
+      //   child: Container(
+      //     child: RaisedButton(
+      //       onPressed: (){
+      //         Navigator.pop(context);
+      //       },
+      //       child: Text("Go Back ${this.movie.title}"),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
