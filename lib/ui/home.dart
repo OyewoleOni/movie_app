@@ -3,7 +3,6 @@ import 'package:movie_app/ui/details.dart';
 
 // import 'details.dart';
 
-
 class MovieListView extends StatelessWidget {
   final List movies = [
     "Titanic",
@@ -50,8 +49,15 @@ class MovieListView extends StatelessWidget {
                   movies.elementAt(index),
                 ),
                 subtitle: Text("sub"),
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => MovieListViewDetail()));
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MovieListViewDetail(
+                        movieName: movies.elementAt(index),
+                      ),
+                    ),
+                  );
                 },
                 //onTap: () => debugPrint("Movie name: ${movies.elementAt(index)}"),
               ),
@@ -60,4 +66,3 @@ class MovieListView extends StatelessWidget {
     );
   }
 }
-
