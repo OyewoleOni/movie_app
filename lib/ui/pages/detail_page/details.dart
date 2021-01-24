@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie.dart';
 import 'package:movie_app/ui/pages/detail_page/components/movie_details_header_with_poster.dart';
 
+import 'components/horizontal_line.dart';
 import 'components/movie_details_cast.dart';
 import 'components/movie_details_thumbnail.dart';
 
@@ -23,7 +24,9 @@ class MovieListViewDetail extends StatelessWidget {
         children: [
           MovieDetailsThumbnail(thumbnailUrl: this.movie.images[0]),
           MovieDetaisHeaderWithPoster(movie: this.movie),
-          MovieDetailsCast(movie: this.movie,)
+          HorizontalLine(),
+          MovieDetailsCast(movie: this.movie),
+          HorizontalLine()
         ],
       ),
       // body: Center(
