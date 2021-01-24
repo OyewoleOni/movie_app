@@ -5,6 +5,7 @@ import 'package:movie_app/ui/pages/detail_page/components/movie_details_header_w
 import 'components/horizontal_line.dart';
 import 'components/movie_details_cast.dart';
 import 'components/movie_details_thumbnail.dart';
+import 'components/movie_extra_posters.dart';
 
 class MovieListViewDetail extends StatelessWidget {
   
@@ -26,7 +27,8 @@ class MovieListViewDetail extends StatelessWidget {
           MovieDetaisHeaderWithPoster(movie: this.movie),
           HorizontalLine(),
           MovieDetailsCast(movie: this.movie),
-          HorizontalLine()
+          HorizontalLine(),
+          MovieExtraPosters(postersUrl: this.movie.images,)
         ],
       ),
       // body: Center(
